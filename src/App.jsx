@@ -40,7 +40,16 @@ const tweetsArray = [
 function App() {
   return (
     <div className="App">
-      <Tweet tweet={tweetsArray[0]} />
+      {/* googled it -> need to use map to iterate over array -> forEach doesn't return anything */}
+      {/* even though it was working it was throwing an error -> Missing "key" prop for element in iteratoreslintreact/jsx-key */}
+      {/* google it again -> used index to give each tweet a unique identifier */}
+      {tweetsArray.map((item, index) => {
+        return <Tweet key={`tweet${index}`} tweet={item} />;
+      })}
+      {/* <Tweet tweet={tweetsArray[0]} />
+          <Tweet tweet={tweetsArray[1]} />
+          <Tweet tweet={tweetsArray[2]} />
+       */}
     </div>
   );
 }
